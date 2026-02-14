@@ -1,0 +1,118 @@
+{
+  "name": "CamCut - Viral Clip Creator",
+  "short_name": "CamCut",
+  "description": "Create Viral Clips in Seconds. Pick from trending clips or upload your own. Trim. Add fire text styles. Share. Watch trends.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#FF2D55",
+  "orientation": "portrait-primary",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": ["photo & video", "social", "entertainment"],
+  "prefer_related_applications": false,
+  "offline_enabled": true,
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-192-maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/banner.jpg",
+      "sizes": "1280x720",
+      "type": "image/jpeg",
+      "form_factor": "wide"
+    },
+    {
+      "src": "/og-image.jpg",
+      "sizes": "1200x630",
+      "type": "image/jpeg",
+      "form_factor": "wide"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Create Video",
+      "short_name": "Create",
+      "description": "Start creating a new viral clip",
+      "url": "/studio",
+      "icons": [
+        {
+          "src": "/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Gallery",
+      "short_name": "Gallery",
+      "description": "View your created videos",
+      "url": "/gallery",
+      "icons": [
+        {
+          "src": "/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ],
+  "file_handlers": [
+    {
+      "action": "/local-videos",
+      "accept": {
+        "video/mp4": [".mp4"],
+        "video/x-matroska": [".mkv"],
+        "video/webm": [".webm"],
+        "video/quicktime": [".mov"],
+        "video/x-msvideo": [".avi"],
+        "video/x-m4v": [".m4v"],
+        "video/3gpp": [".3gp"],
+        "video/x-flv": [".flv"],
+        "video/x-ms-wmv": [".wmv"],
+        "video/ogg": [".ogv"],
+        "video/x-mpeg": [".mpeg", ".mpg"]
+      }
+    }
+  ]
+}
+
