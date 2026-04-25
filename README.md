@@ -1,14 +1,13 @@
 # CamCut - Browser-Based Video Editor & Player
 
-A free, browser-based Progressive Web App (PWA) for creating viral short-form video clips with text overlays. No signup, no watermarks, no uploads to servers—everything runs locally in your browser.
-
 ![Version](https://img.shields.io/badge/version-2.3.0-blue)
 ![Vite](https://img.shields.io/badge/Vite-5.4.2-646CFF?logo=vite&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.5.3-3178C6?logo=typescript&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4.1-38B2AC?logo=tailwind-css&logoColor=white) 
 ![PWA](https://img.shields.io/badge/PWA-Enabled-5A0FC8?logo=pwa&logoColor=white) 
 
-## Screenshot 
+A free, browser-based Progressive Web App (PWA) for Play , Trim and Edit Videos or create Vine style clips (short clip). client side so everything runs locally in your browser.
+
 ![CamCut Screenshot](./camcut.jpeg)
 
 ## 🎬 Features
