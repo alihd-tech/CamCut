@@ -1,10 +1,10 @@
-// Service Worker for CamCut PWA
+// Service Worker for cc PWA
 // Enhanced with offline video support
 
-const CACHE_NAME = 'camcut-v4';
-const STATIC_CACHE = 'camcut-static-v4';
-const VIDEO_CACHE = 'camcut-videos-v4';
-const API_CACHE = 'camcut-api-v4';
+const CACHE_NAME = 'cc-v4';
+const STATIC_CACHE = 'cc-static-v4';
+const VIDEO_CACHE = 'cc-videos-v4';
+const API_CACHE = 'cc-api-v4';
 
 // Install event - cache resources
 self.addEventListener('install', (event) => {

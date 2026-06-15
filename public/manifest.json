@@ -98,7 +98,7 @@
   ],
   "file_handlers": [
     {
-      "action": "/local-videos",
+      "action": "/#/local-videos",
       "accept": {
         "video/mp4": [".mp4"],
         "video/x-matroska": [".mkv"],
