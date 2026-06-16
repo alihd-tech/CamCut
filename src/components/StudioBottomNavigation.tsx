@@ -5,15 +5,18 @@ import {
   Upload,
   Scissors,
   Type,
-  Eye, 
+  Eye,
+  Settings,
 } from 'lucide-react';
 import { VideoData } from '../App';
 import { useEffect, useRef } from 'react';
 
 type StepType = 'upload' | 'trim' | 'text' | 'preview';
+type UploadPhase = 'select' | 'configure';
 
 interface StudioBottomNavigationProps {
   currentStep: StepType;
+  uploadPhase?: UploadPhase;
   videoData: VideoData;
   text: string;
   onStepBack: () => void;
@@ -41,6 +44,7 @@ const STEP_INFO: Record<StepType, StepInfo> = {
 
 export default function StudioBottomNavigation({
   currentStep,
+  uploadPhase = 'select',
   onStepBack,
   onStepForward,
   onReset,
@@ -48,10 +52,14 @@ export default function StudioBottomNavigation({
   canGoForward,
 }: StudioBottomNavigationProps) {
   const currentStepIndex = STEP_ORDER.indexOf(currentStep);
-  const progressPercentage = ((currentStepIndex + 1) / STEP_ORDER.length) * 100;
+  const progressPercentage = uploadPhase === 'configure'
+    ? ((currentStepIndex + 0.5) / STEP_ORDER.length) * 100
+    : ((currentStepIndex + 1) / STEP_ORDER.length) * 100;
   const progressRef = useRef<HTMLDivElement>(null);
 
-  const currentInfo = STEP_INFO[currentStep];
+  const currentInfo = uploadPhase === 'configure'
+    ? { name: 'Configure', icon: Settings, shortName: 'Setup' }
+    : STEP_INFO[currentStep];
   const CurrentIcon = currentInfo.icon;
   const isPreview = currentStep === 'preview';
 

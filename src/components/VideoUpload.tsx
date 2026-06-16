@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import { Upload, Video, ArrowLeft } from 'lucide-react'; 
 
 interface VideoUploadProps {
-  onVideoUpload: (file: File, url: string, duration: number) => void;
+  onVideoSelect: (file: File) => void;
   onBack?: () => void;
 }
 
@@ -32,19 +32,16 @@ const isVideoFile = (file: File) => {
   return SUPPORTED_VIDEO_FORMATS.includes(file.type) || videoExtensions.includes(extension);
 };
 
-function VideoUpload({ onVideoUpload, onBack }: VideoUploadProps) {
+function VideoUpload({ onVideoSelect, onBack }: VideoUploadProps) {
   const [isDragging, setIsDragging] = useState(false);
-  const [isProcessing, setIsProcessing] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleFile = (file: File) => {
     setError(null);
-    setIsProcessing(true);
 
     if (!isVideoFile(file)) {
       setError('Please upload a valid video file. Supported formats: MP4, WebM, AVI, MOV, MKV, and more.');
-      setIsProcessing(false);
       return;
     }
 
@@ -52,31 +49,10 @@ function VideoUpload({ onVideoUpload, onBack }: VideoUploadProps) {
     const maxSize = 100 * 1024 * 1024; // 100MB
     if (file.size > maxSize) {
       setError('File size must be less than 100MB. Please compress your video or choose a smaller file.');
-      setIsProcessing(false);
       return;
     }
 
-    const url = URL.createObjectURL(file);
-    const video = document.createElement('video');
-    video.src = url;
-
-    video.onloadedmetadata = async () => {
-      if (video.duration < 3) {
-        setError('Video must be at least 3 seconds long.');
-        setIsProcessing(false);
-        URL.revokeObjectURL(url);
-        return;
-      }
-
-      setIsProcessing(false);
-      onVideoUpload(file, url, video.duration);
-    };
-
-    video.onerror = () => {
-      setError('Failed to load video. Please ensure the file is not corrupted and try again.');
-      setIsProcessing(false);
-      URL.revokeObjectURL(url);
-    };
+    onVideoSelect(file);
   };
 
   const handleDrop = (e: React.DragEvent) => {
@@ -155,16 +131,6 @@ function VideoUpload({ onVideoUpload, onBack }: VideoUploadProps) {
         {error && (
           <div className="absolute top-4 left-4 right-4 bg-red-500/90 backdrop-blur-sm text-white p-3 rounded-xl text-sm font-medium z-20" role="alert">
             {error}
-          </div>
-        )}
-
-        {isProcessing && (
-          <div className="absolute inset-0 bg-black/50 flex items-center justify-center z-30 rounded-lg sm:rounded-xl" aria-busy="true">
-            <div className="bg-primary rounded-lg p-5 text-center border border-theme shadow-theme-md">
-              <div className="w-7 h-7 border-2 border-[var(--accent-main)] border-t-transparent rounded-full animate-spin mx-auto mb-2" />
-              <p className="text-primary font-semibold">Processing video...</p>
-              <p className="text-secondary text-sm mt-1">This may take a moment</p>
-            </div>
           </div>
         )}
 
