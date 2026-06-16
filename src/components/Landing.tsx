@@ -275,9 +275,9 @@ export default function Landing() {
                 </p>
                 <ul className="space-y-2 mb-4">
                   {[
-                    '6 unique text styles built for short-form',
-                    'Customizable colors and emphasis',
-                    'Real-time preview in the editor',
+                    'for example microsoft does not support mkv',
+                    'or you cannot trim a basic clip or add a text',
+                    'And some other things that are making this frustrating',
                   ].map((item, idx) => (
                     <li key={idx} className="flex items-center gap-2 text-secondary text-sm">
                       <CheckCircle2 className="w-4 h-4 text-[var(--accent-main)] flex-shrink-0" />
@@ -296,54 +296,7 @@ export default function Landing() {
             </div>
           </div>
         </section>
-
-        {/* Use cases */}
-        <section className="py-10 sm:py-14 border-t border-theme bg-secondary">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-6">
-              <h2 className="text-xl sm:text-2xl font-black text-primary font-outfit mb-2">
-                Built for every-form
-              </h2>
-              <p className="text-secondary text-sm sm:text-base max-w-xl mx-auto">
-                Whether you&apos;re a creator, marketer, or just sharing with friends, CamCut helps you ship
-                scroll-stopping clips fast.
-              </p>
-            </div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3">
-              {useCases.map((useCase, idx) => (
-                <div
-                  key={idx}
-                  className="flex items-center gap-2.5 p-3 rounded-lg bg-primary border border-theme shadow-theme-sm hover:shadow-theme-md transition-shadow"
-                >
-                  <CheckCircle2 className="w-4 h-4 text-[var(--accent-main)] flex-shrink-0" />
-                  <span className="text-primary text-sm font-medium">{useCase}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
  
-
-        {/* Final CTA */}
-        <section className="py-10 sm:py-14 border-t border-theme bg-secondary">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="rounded-lg border border-theme bg-primary px-6 sm:px-8 py-6 sm:py-8 text-center shadow-theme-md">
-              <h2 className="text-xl sm:text-2xl font-black font-outfit mb-2 text-[var(--accent-main)]">
-                Ready to ship your next short?
-              </h2>
-              <p className="text-secondary text-sm mb-6 max-w-xl mx-auto">
-                Open CamCut in your browser, trim a clip, add text, and export — free, no signup, no watermarks.
-              </p>
-              <button
-                onClick={() => navigate('/studio')}
-                className="group inline-flex items-center gap-2 text-[var(--accent-contrast)] px-5 py-2.5 rounded-lg font-semibold bg-[var(--accent-main)] hover:opacity-95 shadow-theme-md transition-all duration-200 active:scale-[0.99] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-main)] focus-visible:ring-offset-2"
-              >
-                <span>Get started now</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-              </button>
-            </div>
-          </div>
-        </section>
       </div>
     </>
   );
